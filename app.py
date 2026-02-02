@@ -7,10 +7,6 @@ index 8361eeba2c3eaa697385fcba1373626f171d0d46..7da7cf3711a5152b7b456537a702d4db
  import streamlit as st
  from openai import OpenAI
  
--st.title("🤖 나의 AI 챗봇")
--
--# 사이드바에서 API Key 입력
--api_key = st.sidebar.text_input("OpenAI API Key", type="password")
 +st.title("🤖 나의 AI 챗봇")
 +
 +# 사이드바에서 API Key 입력
@@ -30,15 +26,6 @@ index 8361eeba2c3eaa697385fcba1373626f171d0d46..7da7cf3711a5152b7b456537a702d4db
      with st.chat_message(message["role"]):
          st.markdown(message["content"])
  
--# 사용자 입력 처리
--if prompt := st.chat_input("메시지를 입력하세요"):
--    if not api_key:
--        st.error("⚠️ 사이드바에서 API Key를 입력해주세요!")
--    else:
--        # 사용자 메시지 저장 및 표시
--        st.session_state.messages.append({"role": "user", "content": prompt})
--        with st.chat_message("user"):
--            st.markdown(prompt)
 +# 사용자 입력 처리
 +if prompt := st.chat_input("메시지를 입력하세요"):
 +    if not api_key:
@@ -59,8 +46,6 @@ index 8361eeba2c3eaa697385fcba1373626f171d0d46..7da7cf3711a5152b7b456537a702d4db
              )
              reply = response.choices[0].message.content
              st.markdown(reply)
--            st.session_state.messages.append({"role": "assistant", "content": reply})
-\ No newline at end of file
 +            st.session_state.messages.append({"role": "assistant", "content": reply})
  
 EOF
